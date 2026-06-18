@@ -17,14 +17,16 @@ public class DBConnection {
     private static Connection connection;
     private static final String user = "java";
     private static final String password = "java";
-    private static final String database = "jdbc:derby://localhost:1527/CourseSchedulerDB2ranjit";
-
+    private static final String database = "jdbc:derby:CourseSchedulerDB2ranjit;create=true"; 
+    private static final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    
     public static Connection getConnection()
     {
         if (connection == null)
         {
             try
             {
+                //Class.forName(driver);
                 connection = DriverManager.getConnection(database, user, password);
             } catch (SQLException e)
             {
@@ -32,7 +34,11 @@ public class DBConnection {
                 System.out.println("Could not open database.");
                 System.exit(1);
 
-            }
+            }/* catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                System.out.println("Could not get class");
+                System.exit(1);
+            }*/
         }
         return connection;
     }

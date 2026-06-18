@@ -5,5 +5,7 @@ build/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
 /xzq789yy.txt
+/*.txt
+/*.zip
+/*.log
